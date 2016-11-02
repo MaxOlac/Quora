@@ -3,12 +3,22 @@ enable :sessions
 #== Controlador Principal ==
 #===========================
 get '/' do
+  session.clear
   if session[:user_id]
     @user=User.find(session[:user_id])
     erb :in 
   else
     erb :index
   end
+end
+
+get '/categorias' do
+  erb :categorias
+end
+
+post '/categorias/prueba' do
+  p params
+  "HOLA COMO ESTAS?"
 end
 
 post '/user/reg' do

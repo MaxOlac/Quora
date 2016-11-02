@@ -42,3 +42,16 @@ input{
 th {
   text-align: left;
 }
+
+input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="checkbox"]:checked + label {
+    border:3px solid blue;
+}
+
+#categorycheckbox p {
+  text-align: center;
+}
