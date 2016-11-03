@@ -3,7 +3,8 @@ class CreateQuestion < ActiveRecord::Migration
     create_table :questions do |t| 
       t.belongs_to :user, index: true
       t.belongs_to :category, index: true
-      t.string :question
+      t.string :title
+      t.string :body
       t.integer :likes
     end
   end

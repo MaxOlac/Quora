@@ -1,0 +1,142 @@
+<!-- Nav bar start -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kuora</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group input-group">
+          <input type="text" class="form-control" placeholder="Search..">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><%= @user.user_name %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href='/user/out'>Logout</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Nav bar end-->
+<!-- Contenido -->  
+<div class="container text-center">
+  <div class="row">
+    <!-- Left start -->
+    <div class="col-sm-3 well">
+      <div class="well">
+        <p><a href="#"> <%= @user.user_name %> </a></p>
+        <img src="/img/<%= @user.img %>" class="img-circle" height="65" width="65" alt="Avatar">
+      </div>
+      <div class="well">
+        <p><a href="#">Interests</a></p>
+        <p id="cat_id">
+          <a href="#"><span class="label label-default">History</span></a>
+          <a href="#"><span class="label label-primary">Sports</span></a>
+          <a href="#"><span class="label label-success">Food</span></a>
+          <a href="#"><span class="label label-info">Travel</span></a>
+          <a href="#"><span class="label label-warning">Science</span></a>
+          <a href="#"><span class="label label-danger">Films</span></a>
+
+          <a href="#"><span class="label label-default">Music</span></a>
+          <a href="#"><span class="label label-primary">Politics</span></a>
+          <a href="#"><span class="label label-success">Technology</span></a>
+          <a href="#"><span class="label label-info">Nature</span></a>
+          <a href="#"><span class="label label-warning">Books</span></a>
+          <a href="#"><span class="label label-danger">Fashion</span></a>
+        </p>
+      </div>
+<!--       <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <p><strong>Ey!</strong></p>
+        People are looking at your profile. Find out who.
+      </div>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p> -->
+    </div>
+    <!-- Left finish -->
+    <!-- Center start -->
+    <div class="col-sm-9">
+    <!-- Make question -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <form>
+                <textarea name="question" id="question" cols="100" rows="2" placeholder="What do yo want to now?"></textarea>
+                <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-send"></span> Ask
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Question -->
+      <div class="row" id="folowers_q">
+        <!-- Question User  -->
+        <div class="col-sm-3">
+          <div class="well">
+           <p>John</p>
+           <img src="/img/rod.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <!-- Question question -->
+        <div class="col-sm-9">
+          <div class="well">
+            <a href="#"><h3>Titlo de la pregunta</h3></a>
+            <p>Desarrollo e la pregunta: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quibusdam accusantium assumenda eveniet excepturi voluptatum accusamus fuga obcaecati vel voluptates error nam repellat sint, omnis mollitia nisi facilis perferendis, maiores!</p>
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- Center finish -->
+    <!-- Right start -->
+    <!-- <div class="col-sm-2 well">
+      <div class="thumbnail">
+        <p>Upcoming Events:</p>
+        <img src="paris.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Paris</strong></p>
+        <p>Fri. 27 November 2015</p>
+        <button class="btn btn-primary">Info</button>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div> -->
+    <!-- Right finish -->
+
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Kuora</p>
+</footer>
