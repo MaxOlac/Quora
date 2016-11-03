@@ -3,7 +3,7 @@
 #=============================
 
 post '/user/reg' do
-  @user = User.new(name:params[:name],email:params[:email])
+  @user = User.new(name:params[:name],user_name:params[:user_name],email:params[:email],img:'user.jpeg',category:false)
   @user.password=params[:password]
   if @user.save
     session[:user_id]=@user.id
@@ -41,7 +41,7 @@ post '/user/mod' do
   end
 end
 
-post '/user/out' do
+get '/user/out' do
   session.clear
   redirect  '/' 
 end
