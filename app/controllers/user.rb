@@ -16,8 +16,12 @@ end
 post '/user/ini' do
   @user = User.authenticate(params[:email],params[:password])
   if @user
-    session[:user_id]=@user.id
-    return erb :in , layout: false
+    session[:user_id] = @user.id
+    @cat = []
+    @user.categories.each do |x|
+      @cat << x.name
+    end
+    return erb :kuora , layout: false
   else
     return erb :error , layout: false
   end

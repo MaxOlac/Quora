@@ -4,8 +4,12 @@ enable :sessions
 #===========================
 get '/' do
   if session[:user_id]
-    @user=User.find(session[:user_id])
-    erb :in 
+    @user = User.find(session[:user_id])
+    @cat = []
+    @user.categories.each do |x|
+      @cat << x.name
+    end
+    erb :kuora, layout: true
   else
     erb :index
   end
