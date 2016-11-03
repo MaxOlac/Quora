@@ -48,8 +48,17 @@ input[type="checkbox"] {
     left: -9999px;
 }
 
+input[type="checkbox"] + label {
+    opacity: .5;
+}
+
 input[type="checkbox"]:checked + label {
-    border:3px solid blue;
+    opacity: 1;
+    border: 2px solid #333738;
+}
+
+input[type="checkbox"]:hover + label {
+    opacity: 1;
 }
 
 #categorycheckbox p {

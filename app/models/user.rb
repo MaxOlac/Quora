@@ -1,6 +1,10 @@
 include BCrypt
 
 class User < ActiveRecord::Base
+  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  has_many :relations
+  has_many :categories, through: :relations
   validates :email, :presence => true, :uniqueness => true
   validates :name, :presence => true
 

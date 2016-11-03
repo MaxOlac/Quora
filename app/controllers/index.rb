@@ -12,15 +12,6 @@ get '/' do
   end
 end
 
-get '/categorias' do
-  erb :categorias
-end
-
-post '/categorias/prueba' do
-  p params
-  "HOLA COMO ESTAS?"
-end
-
 post '/user/reg' do
   @user = User.new(name:params[:name],email:params[:email])
   @user.password=params[:password]
@@ -60,6 +51,7 @@ post '/user/out' do
   session.clear
   redirect  '/' 
 end
+
 #===========================
 #== Controlador Principal ==
 #===========================
