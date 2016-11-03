@@ -42,3 +42,25 @@ input{
 th {
   text-align: left;
 }
+
+input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="checkbox"] + label {
+    opacity: .5;
+}
+
+input[type="checkbox"]:checked + label {
+    opacity: 1;
+    border: 2px solid #333738;
+}
+
+input[type="checkbox"]:hover + label {
+    opacity: 1;
+}
+
+#categorycheckbox p {
+  text-align: center;
+}

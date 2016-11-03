@@ -3,6 +3,7 @@ enable :sessions
 #== Controlador Principal ==
 #===========================
 get '/' do
+  session.clear
   if session[:user_id]
     @user = User.find(session[:user_id])
     @cat = []

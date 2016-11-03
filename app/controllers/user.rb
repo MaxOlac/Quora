@@ -7,7 +7,7 @@ post '/user/reg' do
   @user.password=params[:password]
   if @user.save
     session[:user_id]=@user.id
-    return erb :in , layout: false
+    return erb :kuora , layout: false
   else
     return erb :error , layout: false
   end
@@ -35,7 +35,7 @@ post '/user/mod' do
   @user.password = params[:password] if params[:password] != ""
   if @user.save
     @user = User.find(session[:user_id])
-    return erb :in , layout: false
+    return erb :kuora , layout: false
   else
     return erb :error , layout: false
   end
