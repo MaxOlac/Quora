@@ -64,3 +64,7 @@ input[type="checkbox"]:hover + label {
 #categorycheckbox p {
   text-align: center;
 }
+
+#likes {
+  float:right;
+}

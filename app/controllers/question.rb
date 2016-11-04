@@ -21,9 +21,10 @@
 #         </div>
 
 
-
-
-
+get '/questions/:category_id' do
+  @questions = Question.where(category: params[:category_id]).last(3)  
+  erb :questions
+end
 #==============================
 #== Controlador de Preguntas ==
 #==============================

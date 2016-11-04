@@ -1,0 +1,51 @@
+<div class="container">
+<% if @question %>
+      <div class="row" id="folowers_q">
+                    <!-- Question User  -->
+                    <div class="col-sm-3">
+                      <div class="well" align="center">
+                       <p><%= @question.user.name %></p>
+                       <img src="/img/<%= @question.user.img %>" class="img-circle" height="55" width="55" alt="Avatar">
+                      </div>
+                    </div>
+                    <!-- Question @question -->
+                    <div class="col-sm-9">
+                      <div class="well">
+                        <a href="#"><h3><%= @question.title %></h3></a>
+                        <p><%= @question.body %></p>
+                        <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-thumbs-up"></span>Like
+                        </button>
+                        <p id="likes">Likes: <%= @question.likes %></p>
+                      </div>
+                    </div>
+<div class="container">
+<% if @answers %>
+  <% @answers.each do |answer| %>
+      <div class="row" id="folowers_q">
+              <!-- Question User  -->
+              <div class="col-sm-3">
+                <div class="well" align="center">
+                 <p><%= answer.user.name %></p>
+                 <img src="/img/<%= answer.user.img %>" class="img-circle" height="55" width="55" alt="Avatar">
+                </div>
+              </div>
+              <!-- Question answer -->
+              <div class="col-sm-9">
+                <div class="well">
+                  <a href="#"><h3><%= answer.title %></h3></a>
+                  <p><%= answer.body %></p>
+                  <button type="button" class="btn btn-default btn-sm">
+                      <span class="glyphicon glyphicon-thumbs-up"></span>Like
+                  </button>
+                  <p id="likes">Likes: <%= answer.likes %></p>
+                </div>
+              </div>
+      </div>
+  <% end %>
+<% end  %>
+</div>
+      </div>
+<% end  %>
+</div>
+
