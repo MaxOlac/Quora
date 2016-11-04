@@ -1,24 +1,26 @@
 #==============================
 #== Controlador de Preguntas ==
 #==============================
+post '/make/question' do 
+  if params[:category]!="" && params[:title]!="" && params[:body]!=""
+    if Question.create(user_id:session[:user_id],category_id:params[:category].to_i,title:params[:title],body:params[:body],likes:0)
+    return "yes"
+    else
+    return nil
+    end 
+  else
+    return nil
+  end
+end
 
-
-
-# <div class="col-sm-3">
-#           <div class="well">
-#            <p>John</p>
-#            <img src="/img/rod.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-#           </div>
-#         </div>
-#         <!-- Question question -->
-#         <div class="col-sm-9">
-#           <div class="well">
-#             <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-#             <button type="button" class="btn btn-default btn-sm">
-#                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
-#             </button>
-#           </div>
-#         </div>
+get '/question/like/:id' do
+  question=Question.find(params[:id])
+  if question
+    question.likes += 1
+    question.save
+  end
+  redirect  '/'
+end
 
 
 
