@@ -14,15 +14,45 @@ post '/make/question' do
 end
 
 get '/question/like/:id' do
-  question=Question.find(params[:id])
-  if question
-    question.likes += 1
-    question.save
+  if session[:user_id]
+    question=Question.find(params[:id])
+    if question
+      question.likes += 1
+      question.save
+    end
+    redirect request.env['HTTP_REFERER']
+  else
+    redirect  '/'
   end
-  redirect  '/'
 end
 
+get '/category/questions/:id' do
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    @questions = Category.find(params[:id]).questions
+    if @questions
+      erb :questions, layout: true
+    else
+      redirect  '/'
+    end
+  else
+    redirect  '/'
+  end
+end
 
+get '/questions/user' do
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    @questions = @user.questions
+    if @questions
+      erb :questions, layout: true
+    else
+      redirect  '/'
+    end
+  else
+    redirect  '/'
+  end  
+end
 
 
 

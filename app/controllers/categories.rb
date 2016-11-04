@@ -3,8 +3,12 @@
 #===============================
 
 get '/categories' do 
-  @user = User.find(session[:user_id])
-  erb :categorias, layout: true
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    erb :categorias, layout: true
+  else
+    redirect  '/'
+  end
 end
 
 post '/categories/choose' do
