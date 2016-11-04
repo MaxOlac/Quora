@@ -68,3 +68,9 @@ input[type="checkbox"]:hover + label {
 #likes {
   float:right;
 }
+
+#center {
+     float: center;
+     margin-left: auto;
+     margin-right: auto;
+}
