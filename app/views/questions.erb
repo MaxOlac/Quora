@@ -54,7 +54,7 @@
               <!-- Question question -->
               <div class="col-sm-9">
                 <div class="well">
-                  <a href="#"><h3><%= question.title %></h3></a>
+                  <a href='/answers/<%= question.id %>'><h3><%= question.title %></h3></a>
                   <p><%= question.body %></p>
                   <a href="/question/like/<%= question.id %>">
                     <button type="button" class="btn btn-default btn-sm">
