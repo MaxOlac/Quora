@@ -69,8 +69,23 @@ input[type="checkbox"]:hover + label {
   float:right;
 }
 
-#center {
-     float: center;
-     margin-left: auto;
-     margin-right: auto;
+#botton {
+  position:relative;
+  top:50px;
+}
+
+#botton2 {
+  position:relative;
+  right:75px;
+  top:2px;
+}
+
+#respuestas {
+  position: relative;
+  right:160px;
+}
+
+#answertitle {
+  position: relative;
+  right:355px;
 }

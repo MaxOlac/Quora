@@ -2,7 +2,7 @@
 <% if @question %>
       <div class="row" id="folowers_q">
                     <!-- Question User  -->
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" id="userprofile">
                       <div class="well" align="center">
                        <p><%= @question.user.name %></p>
                        <img src="/img/<%= @question.user.img %>" class="img-circle" height="55" width="55" alt="Avatar">
@@ -17,22 +17,22 @@
                             <span class="glyphicon glyphicon-thumbs-up"></span>Like
                         </button>
                         <p id="likes">Likes: <%= @question.likes %></p>
+
                       </div>
-                    </div>
-<div class="container">
-      <% if @answers %>
+                      <div class="well" id="respuestas">
+                         <% if @answers %>
         <% @answers.each do |answer| %>
             <div class="row" id="folowers_q">
                     <!-- Question User  -->
                     <div class="col-sm-2">
-                      <div class="well" align="center">
+                      <div class="well" style="border:none;">
                        <p><%= answer.user.name %></p>
                        <img src="/img/<%= answer.user.img %>" class="img-circle" height="55" width="55" alt="Avatar">
                       </div>
                     </div>
                     <!-- Question answer -->
                     <div class="col-sm-8">
-                      <div class="well">
+                      <div class="well"  style="border:none;">
                         <a href="#"><h3><%= answer.title %></h3></a>
                         <p><%= answer.body %></p>
                         <button type="button" class="btn btn-default btn-sm">
@@ -44,10 +44,13 @@
             </div>
         <% end %>
       <% end  %>
-</div>
-<form>
-  <textarea placeholder="Escribe tu respuesta aqui..." rows="4" cols="100"></textarea>
-  <button type="submit" value="Submit" class="btn btn-success" id="submitbutton">Submit</button>
+                      </div>
+                    </div>
+<form align="center" action="/answers/<%= @question.id %>/new" method="post">
+  <input type="text" name="title" id="answertitle" placeholder="Titulo..." required><br>
+  <textarea placeholder="Escribe tu respuesta aqui..." rows="4" cols="100" name="respuesta" required></textarea>
+  <button type="submit" value="Submit" class="btn btn-success" id="botton">Submit</button>
+  <button type="reset" value="reset" class="btn btn-warning"  id="botton2">Clear</button>
 </form>
       </div>
 <% end  %>

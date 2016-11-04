@@ -59,10 +59,6 @@ get '/user/out' do
   redirect  '/' 
 end
 
-get '/boton' do
-  erb :boton 
-end
-
 #=============================
 #== Controlador de Usuarios ==
 #=============================
