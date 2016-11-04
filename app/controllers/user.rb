@@ -2,12 +2,25 @@
 #== Controlador de Usuarios ==
 #=============================
 
+get '/' do
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    if @user.category
+      erb :kuora, layout: true
+    else
+      erb :categorias, layout: true
+    end
+  else
+    erb :index, layout: true
+  end
+end
+
 post '/user/reg' do
   @user = User.new(name:params[:name],user_name:params[:user_name],email:params[:email],img:'user.jpeg',category:false)
-  @user.password=params[:password]
+  @user.password=  params[:password]
   if @user.save
-    session[:user_id]=@user.id
-    return erb :kuora , layout: false
+    session[:user_id] = @user.id
+    return  erb :categorias, layout: true
   else
     return erb :error , layout: false
   end
@@ -17,11 +30,11 @@ post '/user/ini' do
   @user = User.authenticate(params[:email],params[:password])
   if @user
     session[:user_id] = @user.id
-    @cat = []
-    @user.categories.each do |x|
-      @cat << x.name
+    if @user.category
+      erb :kuora, layout: true
+    else
+      erb :categorias, layout: true
     end
-    return erb :kuora , layout: false
   else
     return erb :error , layout: false
   end
